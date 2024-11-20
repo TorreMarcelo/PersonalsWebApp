@@ -1,0 +1,59 @@
+
+<h2 mat-dialog-title>Agregar Nuevo Hijo</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="hijosForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo de Documento</mat-label>
+      <input matInput formControlName="tipoDoc">
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Número de Documento</mat-label>
+      <input matInput formControlName="numeroDoc">
+      <mat-error *ngIf="hijosForm.get('numeroDoc')?.hasError('pattern')">
+        Solo se admiten números.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Apellido Paterno</mat-label>
+      <input matInput formControlName="apPaterno">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Apellido Materno</mat-label>
+      <input matInput formControlName="apMaterno">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre 1</mat-label>
+      <input matInput formControlName="nombre1">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre 2</mat-label>
+      <input matInput formControlName="nombre2">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input matInput [matDatepicker]="pickerNac" formControlName="fechaNac">
+      <mat-datepicker-toggle matSuffix [for]="pickerNac"></mat-datepicker-toggle>
+      <mat-datepicker #pickerNac></mat-datepicker>
+      <mat-error *ngIf="hijosForm.get('fechaNac')?.hasError('required')">
+        La fecha de nacimiento es obligatoria.
+      </mat-error>
+      <mat-error *ngIf="hijosForm.get('fechaNac')?.hasError('futureDate')">
+        La fecha no puede ser en el futuro
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button (click)="onSave()" color="primary">Guardar</button>
+</mat-dialog-actions>
+

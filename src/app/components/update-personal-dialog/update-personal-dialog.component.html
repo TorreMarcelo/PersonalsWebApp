@@ -1,0 +1,64 @@
+<h1 mat-dialog-title>Editar Personal</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>ID</mat-label>
+    <input matInput [(ngModel)]="data.idPersonal">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Tipo de Documento</mat-label>
+    <input matInput [(ngModel)]="data.tipoDoc">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Número de Documento</mat-label>
+    <input matInput [(ngModel)]="data.numeroDoc">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Apellido Paterno</mat-label>
+    <input matInput [(ngModel)]="data.apPaterno">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Apellido Materno</mat-label>
+    <input matInput [(ngModel)]="data.apMaterno">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Primer Nombre</mat-label>
+    <input matInput [(ngModel)]="data.nombre1">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Segundo Nombre</mat-label>
+    <input matInput [(ngModel)]="data.nombre2">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Fecha de Nacimiento</mat-label>
+    <input matInput [matDatepicker]="pickerNac" [(ngModel)]="data.fechaNac" required #fechaNac="ngModel">
+    <mat-datepicker-toggle matSuffix [for]="pickerNac"></mat-datepicker-toggle>
+    <mat-datepicker #pickerNac></mat-datepicker>
+    <mat-error *ngIf="fechaNac.invalid && fechaNac.touched">
+      La fecha de nacimiento es obligatoria.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Fecha de Ingreso</mat-label>
+    <input matInput [matDatepicker]="pickerIngreso" [(ngModel)]="data.fechaIngreso" required #fechaIngreso="ngModel">
+    <mat-datepicker-toggle matSuffix [for]="pickerIngreso"></mat-datepicker-toggle>
+    <mat-datepicker #pickerIngreso></mat-datepicker>
+    <mat-error *ngIf="fechaIngreso.invalid && fechaIngreso.touched">
+      La fecha de ingreso es obligatoria.
+    </mat-error>
+  </mat-form-field>
+  
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="onUpdate()">Actualizar</button>
+</div>
+

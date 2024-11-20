@@ -1,0 +1,43 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-header-cell {
+    font-weight: bold;
+  }
+  
+  .mat-paginator {
+    margin-top: 20px;
+  }
+
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+
+.mat-header-row {
+    background-color: rgb(60, 57, 57);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+  }
+  
+  .mat-row {
+    background-color: white;
+    color: rgb(19, 225, 47);
+  }
+  
+  .mat-row:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .mat-cell {
+    padding: 10px;
+  }
+  
+  .mat-header-cell {
+    padding: 10px; 
+  }
+  
+  
